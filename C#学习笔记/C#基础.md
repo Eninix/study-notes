@@ -36,5 +36,14 @@ Strut <typeName/结构体名字>
 	<memberDeclarations/成员>
 }
 **/
+
+Strut Position
+{
+	public int x;
+    public int y;
+    public int z;
+}
+Position A;
+A.x = 1;
 ```
 
