@@ -53,7 +53,7 @@ try
 {
     
 }
-catch
+catch(<异常类型/exceptionType> e)//省略括号可以捕获所有类型异常
 {
     
 }
@@ -61,5 +61,10 @@ finally
 {
     
 }
+/**
+catch可以有0个或多个
+finally可以有0个或多个
+catch和finally必须要有一个
+**/
 ```
 
