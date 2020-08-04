@@ -47,3 +47,24 @@ Position A;
 A.x = 1;
 ```
 
+# Foreach
+
+```c#
+// int[] scores = new int[5];
+// int[] scores = new int[5]{33, 26, 256, 15, 159};
+int[] scores = {33, 26, 256, 15, 159};
+foreach (int temp in scores)
+{
+	Console.WriteLine(temp);
+}
+```
+
+# 数组的排序
+
+```c#
+int[] arr = {64, 12, 1213, 855,151}
+
+Array.Sort(arr);     //从小到大排序
+Array.Reverse(arr);  //逆转数组
+```
+
