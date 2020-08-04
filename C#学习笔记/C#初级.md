@@ -87,3 +87,43 @@ public class Test<T> //<T, T2, T3, T4, ...>也可以,但是必须全部指定类
 }
 ```
 
+# List
+
+```c#
+//1.创建list
+var l = new List<int>();
+/**
+List<int> l = new List<int>(){1, 22, 66}创建时赋初始值(不常用)
+List<int> l = new List<int>();
+()中为初始容量
+**/
+
+//2.添加数据 Add()
+l.Add(11);
+l.Add(22);
+l.Add(11)
+
+//3.取得数据 [index]
+l[0];
+l[1];
+
+//4.获取和设置容量 Capacity
+l.Capacity = 100;
+
+//5.获取列表元素个数 Count
+l.Count;
+
+//6.插入数据 Insert(index, value)
+l.Insert(1, -1);
+
+//7.移除指定位置元素 RemoveAt(index)
+l.RemoveAt(1);
+
+//8.取得元素的索引位置 IndexOf(value) LastIndexOf(index)
+l.IndexOf(11);    //0
+l.LastIndexOf(11) //2
+
+//9.排序 Sort()
+l.Sort();
+```
+
