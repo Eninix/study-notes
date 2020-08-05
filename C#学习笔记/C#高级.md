@@ -55,3 +55,33 @@ test2
 **/
 ```
 
+# LINQ
+
+## 基础查询
+
+```c#
+var masterList = new List<MartialArtsMaster>()
+{
+	new MartialArtsMaster(){Id = 1, Age = 100, Kongfu = "葵花宝典", Name = "张三", Lever = 100, Mengpai = "厚大法考"},
+	new MartialArtsMaster(){Id = 2, Age = 50, Kongfu = "葵花宝典", Name = "张加", Lever = 50, Mengpai = "厚大法考"},
+	new MartialArtsMaster(){Id = 3, Age = 3, Kongfu = "葵花宝典", Name = "默认", Lever = 25, Mengpai = "厚大法考"},
+	new MartialArtsMaster(){Id = 4, Age = 10, Kongfu = "葵花宝典", Name = "阿萨", Lever = 10, Mengpai = "厚大法考"}
+};
+
+var kongfu = new List<Kongfu>()
+{
+    new Kongfu(){Id = 1, Name = "葵花宝典", Power = 999999}
+};
+//使用LINQ做查询
+var res = from m in masterList
+		//from后设置查询的集合
+		where m.Lever >= 50
+		//where后是查询的条件
+		select m.Name;
+		//select后是m的结果结合返回
+foreach (var temp in res)
+{
+    Console.WriteLine(temp);
+}
+```
+
