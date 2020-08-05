@@ -72,7 +72,7 @@ var kongfu = new List<Kongfu>()
 {
     new Kongfu(){Id = 1, Name = "葵花宝典", Power = 999999}
 };
-//使用LINQ做查询
+//使用LINQ做查询(表达式写法)
 var res = from m in masterList
 		//from后设置查询的集合
 		where m.Lever >= 50
@@ -83,5 +83,11 @@ foreach (var temp in res)
 {
     Console.WriteLine(temp);
 }
+```
+
+## 扩展方法
+
+```
+
 ```
 
