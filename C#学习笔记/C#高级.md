@@ -41,8 +41,14 @@ static void Test2(){};
 main()
 {
     Action a = Test1;
+    a();
     a += Test2;//添加一个委托的引用
+    a();
     a -= Test1;//减少一个委托的引用
+    a();
 }
+/**输出结果:
+
+**/
 ```
 
