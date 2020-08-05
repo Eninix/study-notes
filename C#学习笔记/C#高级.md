@@ -87,7 +87,42 @@ foreach (var temp in res)
 
 ## 扩展方法
 
+```c#
+//过滤方法
+static bool Test1(MartialArtsMaster master)
+{
+	if (master.Lever >= 50) return true;
+	return false;
+}
+        
+//扩展的方法的写法
+var res = masterList.Where(Test1);
+            
+foreach (var temp in res)
+{
+    Console.WriteLine(temp);//需要重写ToString方法
+}
 ```
 
+## 利用lambda表达式
+
+```c#
+var res = masterList.Where(m=>m.Lever>=50);
+            
+foreach (var temp in res)
+{
+    Console.WriteLine(temp);//需要重写ToString方法
+}
+```
+
+## 重写一个类的ToString
+
+ToString()方法代表直接输出这个类的对象时会怎样去输出
+
+```c#
+public override string ToString()
+{
+	return string.Format("id:{0}\tname:{1}\tage:{2}  \tmengpai:{3}\tkongfu:{4}  \tlever:{5}", this.id, this.name, this.age, this.mengpai, this.kongfu, this.lever);
+}
 ```
 
