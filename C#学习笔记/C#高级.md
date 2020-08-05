@@ -35,20 +35,23 @@ Func<参数类型>中的参数类型是方法的返回值,可以有多个参数�
 ## 多播委托
 
 ```c#
-static void Test1(){};
-static void Test2(){};
+static void Test1(){Console.WriteLine("test1")};
+static void Test2(){Console.WriteLine("test2")};
 
 main()
 {
     Action a = Test1;
-    a();
+    a();//test1
     a += Test2;//添加一个委托的引用
-    a();
+    a();//test1和test2
     a -= Test1;//减少一个委托的引用
-    a();
+    a();//test2
 }
 /**输出结果:
-
+test1
+test1
+test2
+test2
 **/
 ```
 
