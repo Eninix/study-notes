@@ -144,6 +144,8 @@ var res = masterList.SelectMany(m => Kongfu,(m, k) => new {master = m, kongfu = 
 ## 对结果进行排序orderby descending
 
 ```c#
+where ...
 orderby m.Level, m.Age //按照多个字段排序,第一个相同就按第二个
+select ...
 ```
 
