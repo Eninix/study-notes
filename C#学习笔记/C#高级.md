@@ -179,3 +179,12 @@ var res = from m in masterList
     select new {count = g.Count(), key = g.Key};//g.Key Key表示是按照那个类别进行的分组
 ```
 
+## 量词操作符 any all
+
+```c#
+//Any只要其中一个满足就返回True
+bool res1 = masterList.Any(m => m.Mengpai == "丐帮");
+//All需要全部满足才返回True
+bool res2 = masterList.All(m => m.Mengpai == "丐帮");
+```
+
