@@ -55,6 +55,17 @@ test2
 **/
 ```
 
+# 重写一个类的ToString
+
+ToString()方法代表直接输出这个类的对象时会怎样去输出
+
+```c#
+public override string ToString()
+{
+	return string.Format("id:{0}\tname:{1}\tage:{2}  \tmengpai:{3}\tkongfu:{4}  \tlever:{5}", this.id, this.name, this.age, this.mengpai, this.kongfu, this.lever);
+}
+```
+
 # LINQ
 
 ## 基础查询
@@ -115,14 +126,4 @@ foreach (var temp in res)
 }
 ```
 
-## 重写一个类的ToString
-
-ToString()方法代表直接输出这个类的对象时会怎样去输出
-
-```c#
-public override string ToString()
-{
-	return string.Format("id:{0}\tname:{1}\tage:{2}  \tmengpai:{3}\tkongfu:{4}  \tlever:{5}", this.id, this.name, this.age, this.mengpai, this.kongfu, this.lever);
-}
-```
 
