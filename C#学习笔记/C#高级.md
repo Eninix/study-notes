@@ -160,7 +160,7 @@ var res = from m in masterList
     select new {master = m, kongfu = k};
 ```
 
-## into groups 分组
+## into groups 对结果进行分组
 
 ```c#
 var res = from k in kongfu
@@ -168,5 +168,14 @@ var res = from k in kongfu
     into groups
     orderby groups.Count()
     select new {kongfu = k, count = groups.Count()};
+```
+
+## group by 对结果进行分组
+
+```c#
+var res = from m in masterList
+	group m by m.Menpai
+    into g
+    select new {count = g.Count(), key = g.Key};//g.Key Key表示是按照那个类别进行的分组
 ```
 
