@@ -126,4 +126,12 @@ foreach (var temp in res)
 }
 ```
 
+## LINQ联合查询
+
+```c#
+var res = from m in masterList
+    	form k in Kongfu
+		where m.Kongfu == k.Name && k.Power >99
+		select m;
+```
 
