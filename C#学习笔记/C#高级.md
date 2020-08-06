@@ -130,7 +130,7 @@ foreach (var temp in res)
 
 ```c#
 var res = from m in masterList
-    	form k in Kongfu
+    	form k in kongfu
 		where m.Kongfu == k.Name && k.Power >99
 		select m;
 ```
@@ -150,5 +150,23 @@ select ...
     
 //扩展写法
 var res = masterList.Where(m => m.Level>8).OrderBy(m => m.Level).ThenBy(m.Age);
+```
+
+## join on 集合联合
+
+```c#
+var res = from m in masterList
+    join k in kongfu on m.Kongfu equals k.Name
+    select new {master = m, kongfu = k};
+```
+
+## into groups 分组
+
+```c#
+var res = from k in kongfu
+    join m in masterList on k.Name equals m.Kongfu
+    into groups
+    orderby groups.Count()
+    select new {kongfu = k, count = groups.Count()};
 ```
 
