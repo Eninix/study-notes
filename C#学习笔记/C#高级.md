@@ -135,3 +135,9 @@ var res = from m in masterList
 		select m;
 ```
 
+## LINQ联合查询扩展方法
+
+```c#
+var res = masterList.SelectMany(m => Kongfu,(m, k) => new {master = m, kongfu = k}).Where(x => x.master.Kongfu == x.Kongfu.Name && x.kongfu.Power > 99);
+```
+
