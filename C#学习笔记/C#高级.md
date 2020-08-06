@@ -141,3 +141,9 @@ var res = from m in masterList
 var res = masterList.SelectMany(m => Kongfu,(m, k) => new {master = m, kongfu = k}).Where(x => x.master.Kongfu == x.Kongfu.Name && x.kongfu.Power > 99);
 ```
 
+## 对结果进行排序orderby descending
+
+```c#
+orderby m.Level, m.Age //按照多个字段排序,第一个相同就按第二个
+```
+
