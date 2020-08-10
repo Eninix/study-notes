@@ -24,3 +24,43 @@ img1.src = './2.jpg'
 console.log(img1)
 ```
 
+# 3. 读取和设置文本内容
+
+```typescript
+let h = document.querySelector('#title') as HTMLHeadingElement
+
+console.log(h.innerText)
+
+h.innerText = '李白的静夜思'
+
+h.innerText += '李白'
+```
+
+# 4. 操作样式(style)
+
+```typescript
+let p = document.querySelector('#txt') as HTMLParagraphElement
+
+p.style.fontSize = '200px'
+p.style.color = 'red'
+
+p.style.display = 'none'
+p.style.display = 'block'
+
+```
+
+# 5.操作样式(class)
+
+```typescript
+let p = document.querySelector('#txt') as HTMLParagraphElement
+
+//添加类
+p.classList.add('a', 'w')
+
+//移除类
+p.classList.remove('a', 'w')
+
+//判断类名是否存在
+let has: boolean = p.classList.contains('bbq')
+```
+
