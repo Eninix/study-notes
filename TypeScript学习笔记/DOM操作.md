@@ -64,3 +64,40 @@ p.classList.remove('a', 'w')
 let has: boolean = p.classList.contains('bbq')
 ```
 
+# 6. 操作事件(addEventListener)
+
+```typescript
+let btn = document.querySelector('#btn') as HTMLButtonElement
+
+//添加事件
+//点击事件
+btn.addEventListener('click',() => {
+    console.log('你还真的点下去了!')
+})
+//鼠标移入事件
+btn.addEventListener('mouseenter', () => { 
+    console.log('你放上去了...哈哈!')
+})
+```
+
+# 7. 操作事件(事件对象)
+
+```typescript
+var n = 30
+
+let btn = document.querySelector('#btn') as HTMLButtonElement
+
+btn.addEventListener('click', (event) => {
+
+    // console.log('event.type为', event.type)
+    // console.log('event.target为', event.target)
+    // console.log('event为', event)
+
+    let target = event.target as HTMLButtonElement
+    n += 1
+    target.style.fontSize = n + 'px'
+    console.log('啊啊啊~我变成了', n, 'px~~')
+
+})
+```
+
