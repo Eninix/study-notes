@@ -17,5 +17,13 @@
 
 <img src="assets/h5_yuyibiaoqian.jpg" style="zoom: 67%;" />
 
+# 2.HTML5新增视频标签
+
+```html
+<video> :视频标签
+```
+
+视频<video>常见属性
+
 
 
