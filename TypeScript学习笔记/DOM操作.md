@@ -101,3 +101,24 @@ btn.addEventListener('click', (event) => {
 })
 ```
 
+# 8. 移除事件
+
+```typescript
+var n = 30
+
+let btn = document.querySelector('#btn') as HTMLButtonElement
+
+function bb(event)
+{
+    let target = event.target as HTMLButtonElement
+    n += 1
+    target.style.fontSize = n + 'px'
+    console.log('啊啊啊~我变成了', n, 'px~~')
+
+}
+
+btn.addEventListener('click', bb, {once: true}) //若事件只需触发一次,可以添加once: true
+
+btn.removeEventListener('click', bb) //移除事件
+```
+
