@@ -8,7 +8,7 @@
 
 + [数据结构学习笔记](#数据结构学习笔记)
 + [TypeScript笔记](#TypeScript笔记)
-+ [CSharp笔记(#CSharp笔记)
++ [CSharp笔记](#CSharp笔记)
 + [Cpp学习笔记](#Cpp学习笔记)
 
 ---
