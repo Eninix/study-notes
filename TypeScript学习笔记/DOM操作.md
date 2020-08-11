@@ -1,17 +1,17 @@
 ***目录:***
 
-+ [1. 获取元素](#1. 获取元素)
-+ [2. 类型断言](#2. 类型断言)
-+ [3. 读取和设置文本内容](#3. 读取和设置文本内容)
-+ [4. 操作样式(style)](#4. 操作样式(style))
-+ [5.操作样式(class)](#5.操作样式(class))
-+ [6. 操作事件(addEventListener)](#6. 操作事件(addEventListener))
-+ [7. 操作事件(事件对象)](#7. 操作事件(事件对象))
-+ [8. 移除事件](#8. 移除事件)
++ [1.获取元素](#获取元素)
++ [2.类型断言](#类型断言)
++ [3.读取和设置文本内容](#读取和设置文本内容)
++ [4.操作样式(style)](#操作样式(style))
++ [5.操作样式(class)](#操作样式(class))
++ [6.操作事件(addEventListener)](#操作事件addEventListener)
++ [7.操作事件(事件对象)](#操作事件事件对象)
++ [8.移除事件](#移除事件)
 
 ---
 
-# 1. 获取元素
+# 获取元素
 
 ```typescript
 document.querySelector(selector) //获取第一个对象
@@ -22,7 +22,7 @@ document.querySelector('#title)
 */
 ```
 
-# 2. 类型断言
+# 类型断言
 
 ```typescript
 var img1 = document.querySelector('#image') as HTMLImageElement
@@ -31,7 +31,7 @@ img1.src = './2.jpg'
 console.log(img1)
 ```
 
-# 3. 读取和设置文本内容
+# 读取和设置文本内容
 
 ```typescript
 let h = document.querySelector('#title') as HTMLHeadingElement
@@ -43,7 +43,7 @@ h.innerText = '李白的静夜思'
 h.innerText += '李白'
 ```
 
-# 4. 操作样式(style)
+# 操作样式style
 
 ```typescript
 let p = document.querySelector('#txt') as HTMLParagraphElement
@@ -56,7 +56,7 @@ p.style.display = 'block'
 
 ```
 
-# 5.操作样式(class)
+# 操作样式class
 
 ```typescript
 let p = document.querySelector('#txt') as HTMLParagraphElement
@@ -71,7 +71,7 @@ p.classList.remove('a', 'w')
 let has: boolean = p.classList.contains('bbq')
 ```
 
-# 6. 操作事件(addEventListener)
+# 操作事件addEventListener
 
 ```typescript
 let btn = document.querySelector('#btn') as HTMLButtonElement
@@ -87,7 +87,7 @@ btn.addEventListener('mouseenter', () => {
 })
 ```
 
-# 7. 操作事件(事件对象)
+# 操作事件对象
 
 ```typescript
 var n = 30
@@ -108,7 +108,7 @@ btn.addEventListener('click', (event) => {
 })
 ```
 
-# 8. 移除事件
+# 移除事件
 
 ```typescript
 var n = 30
