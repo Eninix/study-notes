@@ -1,12 +1,20 @@
-**目录:**
+***目录:***
 
 [TOC]
 
+---
 
++ [参数个数不确定的函数(params)](#参数个数不确定的函数)
++ [异常](#异常)
++ [out和ref](#out和ref)
++ [泛型](#泛型)
++ [List](#List)
 
 ---
 
-# 参数个数不确定的函数(params)
+# 参数个数不确定的函数
+
+(params)
 
 ```c#
 public static void UseParams(params int[] list)
