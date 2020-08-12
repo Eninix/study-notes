@@ -193,3 +193,63 @@ bool res1 = masterList.Any(m => m.Mengpai == "丐帮");
 bool res2 = masterList.All(m => m.Mengpai == "丐帮");
 ```
 
+# 反射和特性
+
+## type类
+
+```c#
+namespace 特性与反射
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyClass my = new MyClass();
+            Type type = my.GetType();
+            Console.WriteLine(type.Name); //获取类名
+            Console.WriteLine(type.Namespace); //获取所在命名空间
+            Console.WriteLine(type.Assembly); //程序集类型
+
+            FieldInfo[] arr = type.GetFields(); //获取共有字段
+            foreach (FieldInfo item in arr)
+            {
+                Console.Write(item.Name + " ");
+            }
+            Console.WriteLine();
+
+            PropertyInfo[] arr2 = type.GetProperties(); //获取属性
+            foreach (PropertyInfo item in arr2)
+            {
+                Console.Write(item.Name + " ");
+            }
+            Console.WriteLine();
+
+            MethodInfo[] arr3 = type.GetMethods(); //获取方法
+            foreach (MethodInfo item in arr3)
+            {
+                Console.Write(item.Name + " ");
+            }
+            Console.WriteLine();
+
+
+
+            Console.ReadKey(true);
+        }
+    }
+}
+```
+
+## Assembly类
+
+```c#
+            MyClass my = new MyClass();
+            Assembly ass = my.GetType().Assembly;
+            Console.WriteLine(ass.FullName); //输出获取程序集
+            Type[] type = ass.GetTypes();
+            foreach (var item in type)
+            {
+                Console.WriteLine(item); //输出的是类名
+            }
+
+```
+
