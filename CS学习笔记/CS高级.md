@@ -7,6 +7,7 @@
 + [委托](#委托)
 + [LINQ](#LINQ)
 + [反射和特性](#反射和特性)
++ [多线程](#多线程)
 
 ---
 
@@ -317,6 +318,128 @@ sealed class MyTestAttribute: System.Attribute
 [MyTest]
 class person {
     
+}
+```
+
+# 多线程
+
+## 1.委托方式发起线程
+
+注意:若在main函数执行完之前,线程未结束,会被强行终止.
+
+### 异步委托
+
+```c#
+    class Program
+    {
+        static long i = 0;
+
+        static long Test()
+        {
+            for (int j = 0; j < 1000000; j++)
+            {
+                i += j;
+                Thread.Sleep(0);
+            }
+            return i;
+        }
+        static void Main(string[] args)
+        {
+            Func<long> a = Test;
+            IAsyncResult ar = a.BeginInvoke(null, null); //委托方式发起线程
+            Console.WriteLine(i);
+            Console.WriteLine(i);
+            Console.WriteLine(i);
+            Console.WriteLine(i);
+
+            while (ar.IsCompleted == false) //如果 异步线程 没有执行完毕
+            {
+                Console.Write(".");
+                Thread.Sleep(10);
+            }
+            Console.WriteLine();
+            
+            long res = a.EndInvoke(ar); //获取 异步线程 返回值
+            Console.WriteLine(res);
+            Console.WriteLine();
+            
+            
+            Console.ReadKey();
+        }
+    }
+
+```
+
+### 检测线程结束
+
+```c#
+//检测线程结束
+bool isEnd = ar.AsyncWaitHandle.WaitOne(100);//在这停下,等待线程结束 //超过100毫秒则超时返回false,否则返回true
+if (isEnd)
+{
+    Console.WriteLine("线程结束,返回值为:" + a.EndInvoke(ar));
+}
+else
+{
+    Console.WriteLine("线程超时!");
+}
+```
+
+### 回调函数 检测线程结束
+
+```c#
+/* 其中一种写法 */
+static void Main(string[] args)
+{
+    Func<long> a = Test;
+
+    //倒数第二个参数:委托类型的参数,表示回调函数,当线程结束时会调用这个委托指向的方法
+    //倒数第一个参数:用于给回调函数传递参数
+    a.BeginInvoke(OnCallBack, a);
+
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    
+    Console.ReadKey();
+}
+
+//这个ar是IAsyncResult类型的变量,是BeginInvoke()自动赋予的
+static void OnCallBack(IAsyncResult ar)
+{
+    //ar.AcyncState表示传个回调函数的参数,在这里就是上面传来的a
+    //需要做一下类型转换
+    Func<long> a = ar.AsyncState as Func<long>;
+    long res = a.EndInvoke(ar);
+    Console.WriteLine("线程结束,线程返回值为:" + res);
+}
+```
+
+### 匿名回调函数 检测线程结束
+
+```c#
+static void Main(string[] args)
+{
+
+    Func<long> a = Test;
+
+    a.BeginInvoke(ar =>
+    {
+        long res = a.EndInvoke(ar);
+        Console.WriteLine("线程结束,线程返回值为:" + res);
+    }, null);
+
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+    Console.WriteLine(i);
+
+
+
+    Console.ReadKey(true);
 }
 ```
 
