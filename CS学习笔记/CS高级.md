@@ -417,7 +417,7 @@ static void OnCallBack(IAsyncResult ar)
 }
 ```
 
-### 匿名回调函数 检测线程结束
+### lambda表达式 匿名回调函数 检测线程结束
 
 ```c#
 static void Main(string[] args)
@@ -438,6 +438,83 @@ static void Main(string[] args)
     Console.WriteLine(i);
 
 
+
+    Console.ReadKey(true);
+}
+```
+
+## 2.Thread类发起线程
+
+### 发起线程
+
+```c#
+static void DownloadFile()
+{
+    Console.WriteLine("开始下载!");
+    Thread.Sleep(2000);
+    Console.WriteLine("下载完成!");
+}
+
+static void Main(string[] args)
+{
+    Thread t = new Thread(DownloadFile); //创建Thread对象,但是没有开始执行线程
+    t.Start(); //开始执行线程
+
+    for (int i = 0; i < 10; i++)
+    {
+        Console.WriteLine(i);
+        Thread.Sleep(200);
+    }
+
+    Console.ReadKey(true);
+}
+```
+
+### lambda表达式发起线程
+
+```c#
+static void Main(string[] args)
+{
+    Thread t = new Thread(() =>
+    {
+        Console.WriteLine("开始下载!");
+        Thread.Sleep(2000);
+        Console.WriteLine("下载完成!");
+    }); //创建Thread对象,但是没有开始执行线程
+
+    t.Start(); //开始执行线程
+
+    for (int i = 0; i < 10; i++)
+    {
+        Console.WriteLine(i);
+        Thread.Sleep(200);
+    }
+
+    Console.ReadKey(true);
+}
+```
+
+### 传参数进去01
+
+```c#
+static void DownloadFile(object fileName) //要么没参数,有的话就必须object类型
+{
+    Console.WriteLine("[" + Thread.CurrentThread.ManagedThreadId + "]" + "开始下载:" + fileName);
+    Thread.Sleep(2000);
+    Console.WriteLine("下载完成!");
+}
+
+static void Main(string[] args)
+{
+    Thread t = new Thread(DownloadFile); //创建Thread对象,但是没有开始执行线程
+
+    t.Start("xxx.avi"); //开始执行线程 //传参数需要从Start()方法里传进去
+
+    for (int i = 0; i < 15; i++)
+    {
+        Console.WriteLine(i);
+        Thread.Sleep(200);
+    }
 
     Console.ReadKey(true);
 }
