@@ -298,3 +298,25 @@ static void Method()
 //在调试时不会进入该方法里，默认该方法正确，可跳过单步调试
 ```
 
+## 自定义特性
+
+```c#
+//1.特性类后缀以Attribute结尾
+//2.需要继承System.Attribute
+//3.一般需声明为sealed（不可被继承）
+//4.一般情况下 特性类用来表示目标结构的一些状态（定义一些字段和属性，一般不定义方法）
+[AttributeUsage(AttributeTarget.Class)]
+sealed class MyTestAttribute: System.Attribute
+{
+    public string Description { get; set; }
+    public string VersionNumber { get; set; }
+    public int ID { get; set; }
+}
+
+//使用时需省略Attribute
+[MyTest]
+class person {
+    
+}
+```
+
