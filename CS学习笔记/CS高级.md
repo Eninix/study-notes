@@ -256,6 +256,7 @@ namespace 特性与反射
 
 ## Obsolete特性(过时的)
 
+```c#
 [Obsolete("这个方法过时了！请使用**方法代替")]
 static void OldMethod()
 {
