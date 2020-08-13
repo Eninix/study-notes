@@ -6,6 +6,7 @@
 
 + [委托](#委托)
 + [LINQ](#LINQ)
++ [反射和特性](#反射和特性)
 
 ---
 
@@ -251,5 +252,48 @@ namespace 特性与反射
                 Console.WriteLine(item); //输出的是类名
             }
 
+```
+
+## Obsolete特性(过时的)
+
+[Obsolete("这个方法过时了！请使用**方法代替")]
+static void OldMethod()
+{
+    console.WirteLine("lalala!")
+}
+//这样会在调用oldmethod时给出提示,但是依旧可以调用
+```
+
+## Condition特性（有条件的）
+
+```c#
+#define cdt//定义一个宏（或变量）
+
+[Conditional("cdt")]
+static void Method()
+{
+    console.WirteLine("lalala!")
+}
+//Method只会在cdt被定义时才会被调用
+```
+
+## 调用者信息特性
+
+```c#
+//在方法的参数前定义，需要给参数一个默认值
+//[CallerFilePath] //调用方法的文件路径
+//[CallerLineNumber] //调用方法的行数
+//[CallerMemberName] //在哪个函数里调用的方法
+```
+
+## DebuggerStepThrough特性
+
+```c#
+[DebuggerStepThrough]
+static void Method()
+{
+    console.WirteLine("lalala!")
+}
+//在调试时不会进入该方法里，默认该方法正确，可跳过单步调试
 ```
 
