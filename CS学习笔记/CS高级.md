@@ -528,3 +528,58 @@ static void Main(string[] args)
 
 t.Abort(); //终止线程  
 t.Join(); //等待t线程执行完,在继续执行下面的代码
+
+## 3.线程池开启线程
+
+1. 线程池中所有线程都是后台线程
+2. 线程池中的线程不能改为前台线程
+3. 只适用于比较短的线程
+4. 若需要一个长时间运行的线程,请使用Thread创建
+
+```c#
+static void ThreadMethod(object state)
+{
+    Console.WriteLine("[" + Thread.CurrentThread.ManagedThreadId + "]" + "线程开始!");
+    Thread.Sleep(2000);
+    Console.WriteLine("[" + Thread.CurrentThread.ManagedThreadId + "]" + "线程结束!");
+}
+
+static void Main(string[] args)
+{
+    ThreadPool.QueueUserWorkItem(ThreadMethod); //线程池开启线程
+    ThreadPool.QueueUserWorkItem(ThreadMethod);
+    ThreadPool.QueueUserWorkItem(ThreadMethod);
+
+
+    Console.ReadKey(true);
+}
+
+```
+
+## 4.任务_开始线程
+
+后台线程
+
+```
+ static void ThreadMethod()
+ {
+     Console.WriteLine("[" + Thread.CurrentThread.ManagedThreadId + "]" + "线程开始!");
+     Thread.Sleep(2000);
+     Console.WriteLine("[" + Thread.CurrentThread.ManagedThreadId + "]" + "线程结束!");
+ }
+
+ static void Main(string[] args)
+ {
+     //Task t = new Task(ThreadMethod); //任务开始方法1
+     //t.Start();
+
+     TaskFactory tf = new TaskFactory(); //任务开始方法2
+     Task t = tf.StartNew(ThreadMethod);
+
+
+
+
+     Console.ReadKey();
+ }
+```
+
