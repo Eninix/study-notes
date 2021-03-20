@@ -14,3 +14,20 @@ mysql8 用：ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password
 
 ## 1.2
 
+![image-20210320194215387](assets.MySQL/image-20210320194215387.png)
+
+# 操作数据库
+
+## 1.创建
+
+```
+CREATE DATABASE IF NOT EXISTS westos;
+```
+
+
+
+## 2.删除
+
+
+
+## 3.使用
