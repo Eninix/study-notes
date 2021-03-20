@@ -20,14 +20,26 @@ mysql8 用：ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password
 
 ## 1.创建
 
+```sql
+CREATE DATABASE [IF NOT EXISTS] westos;
 ```
-CREATE DATABASE IF NOT EXISTS westos;
-```
-
-
 
 ## 2.删除
 
-
+```sql
+DROP DATABASE [IF EXISTS] westos;
+```
 
 ## 3.使用
+
+```sql
+-- 如果你的表名或者字段名是特殊字符,则需要带上 `` 来包裹
+USE `school`
+```
+
+## 4.查看
+
+```sql
+SHOW DATABASES; --查看所有数据库
+```
+
