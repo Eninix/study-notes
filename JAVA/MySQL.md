@@ -1,4 +1,4 @@
-# 安装
+# 1.安装
 
 ## 1.1
 
@@ -16,7 +16,7 @@ mysql8 用：ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password
 
 ![image-20210320194215387](assets.MySQL/image-20210320194215387.png)
 
-# 操作数据库
+# 2.操作数据库
 
 ## 1.创建
 
