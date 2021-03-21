@@ -43,3 +43,13 @@ USE `school`
 SHOW DATABASES; --查看所有数据库
 ```
 
+# 3.数据库列类型
+
+![image-20210321103305098](assets.MySQL/image-20210321103305098.png)
+
+![image-20210321103338968](assets.MySQL/image-20210321103338968.png)
+
+![image-20210321103358580](assets.MySQL/image-20210321103358580.png)
+
+![image-20210321105153426](assets.MySQL/image-20210321105153426.png)
+
