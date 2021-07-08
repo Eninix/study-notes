@@ -51,7 +51,6 @@
   </body>
   </html>
   ```
-  
 
 ###  v-text
 
