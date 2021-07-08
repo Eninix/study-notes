@@ -702,3 +702,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+# 13.TableLayout
+
+![image-20210709004203139](assets.AndroidNote/image-20210709004203139.png)
+
+# 14.GridLayout
+
+![image-20210709004816849](assets.AndroidNote/image-20210709004816849.png)
+
+![image-20210709004946547](assets.AndroidNote/image-20210709004946547.png)
+
+# 15.ConstaintLayout
+
+# 16.ListView
+
