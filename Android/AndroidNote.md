@@ -1456,7 +1456,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 </LinearLayout>
 ```
 
+![image-20210710143811394](assets.AndroidNote/image-20210710143811394.png)
 
+## 利用bundle传递信息，在fragment和activity之间
+
+```java
+//其余代码同上
+switch (view.getId()) {
+            case R.id.button1:
+
+                //利用Bundle在fragment和activity之间通信
+                Bundle bundle1 = new Bundle();
+                //bundle所携带的信息 （key，string）
+                bundle1.putString("message", "btn-1-天気は良いから、散歩しましょう！");
+                //设置bundle 以利用Bundle在fragment和activity之间通信
+                blankFragment.setArguments(bundle1);
+
+                //调用 动态切换fragment 方法
+                replaceFragment(blankFragment);
+                break;
+            case R.id.button2:
+
+                //利用Bundle在fragment和activity之间通信
+                Bundle bundle2 = new Bundle();
+                //bundle所携带的信息 （key，string）
+                bundle2.putString("message", "btn-2-天気は良いから、散歩しましょう！");
+                //设置bundle 以利用Bundle在fragment和activity之间通信
+                itemFragment.setArguments(bundle2);
+
+                //调用 动态切换fragment 方法
+                replaceFragment(itemFragment);
+                break;
+        }
+```
 
 
 
