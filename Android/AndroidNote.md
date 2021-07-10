@@ -1490,5 +1490,9 @@ switch (view.getId()) {
         }
 ```
 
+***生命周期***
+
+![image-20210710223047938](assets.AndroidNote/image-20210710223047938.png)
+
 
 
