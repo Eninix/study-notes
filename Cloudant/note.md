@@ -230,3 +230,57 @@ service.postBulkGet(postBulkGetParams)
   });
 ```
 
+## 删除文档
+
+```js
+service.deleteDocument({
+  db: 'events',
+  docId: '0007241142412418284',
+  rev: '2-9a0d1cd9f40472509e9aac6461837367'
+}).then(response => {
+  console.log(response.result);
+});
+```
+
+## 检索文档
+
+```js
+service.getDocument({
+  db: 'products',
+  docId: 'small-appliances:1000042'
+}).then(response => {
+  console.log(response.result);
+});
+```
+
+## 检索文档的 HTTP 标头
+
+```js
+service.headDocument({
+  db: 'events',
+  docId: '0007241142412418284'
+}).then(response => {
+  console.log(response.status);
+  console.log(response.headers['etag']);
+});
+```
+
+## 创建或修改文档
+
+```js
+const eventDoc: CloudantV1.Document = {
+  type: 'event',
+  userid: 'abc123',
+  eventType: 'addedToBasket',
+  productId: '1000042',
+  date: '2019-01-28T10:44:22.000Z'
+};
+
+service.putDocument({
+  db: 'events',
+  docId: '0007241142412418284',
+  document: eventDoc
+}).then(response => {
+  console.log(response.result);
+});
+```
