@@ -4,7 +4,7 @@
 
 有的笔记是直接复制粘贴学习资料的...
 
-archlinux_test
+This is a test!
 
 ---
 
